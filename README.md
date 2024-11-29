@@ -2,11 +2,12 @@
 How to insert and fetch the data in the ecplise software
 
 
+How to insert data and display the data in the jdbc and mysql software using connection  
 
-program
+
+
 
 package Advancedjava;
-
 import java.sql.*;
 import java.util.*;
 public class Batchprocessing {
