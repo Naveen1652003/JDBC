@@ -3,7 +3,7 @@ How to insert and fetch the data in the ecplise software
 
 
 
-
+program
 
 package Advancedjava;
 
@@ -26,30 +26,25 @@ public class Batchprocessing {
 
 			c=DriverManager.getConnection("jdbc:mysql://localhost:3306/student_db","root","Root@123");
 			 Statement s=c.createStatement();
-//			PreparedStatement p=c.prepareStatement("insert into student values(?,?,?)");
-//			
-//		    
-//			
-//			for(int i=1;i<=count;i++)
-//			{
-//				System.out.println("Enter Id:");
-//				int id=sc.nextInt();
-//				
-//				System.out.println("Enter the name:");
-//				String name=sc.next();
-//				
-//				System.out.println("Enter the subject:");
-//				String subject=sc.next();
-//				
-//				
-//				    p.setInt(1, id);
-//				    p.setString(2, name);
-//				    p.setString(3, subject);
-//				    p.addBatch();
-//				    
-//				 
-//				}
-//			p.executeBatch();
+			PreparedStatement p=c.prepareStatement("insert into student values(?,?,?)");
+			for(int i=1;i<=count;i++)
+			{
+				System.out.println("Enter Id:");
+				int id=sc.nextInt();
+				
+				System.out.println("Enter the name:");
+				String name=sc.next();				
+				System.out.println("Enter the subject:");
+				String subject=sc.next();
+				
+				
+				    p.setInt(1, id);
+				    p.setString(2, name);
+				    p.setString(3, subject);
+				    p.addBatch();			    
+			 				
+			}
+			p.executeBatch();
 			
 			 boolean b=s.execute("select * from student   order by id ");
 			 System.out.format("%6s%18s%25s","ID", "NAME","SUBJECT"+"\n");
@@ -93,15 +88,7 @@ public class Batchprocessing {
 		  }
 	}
 }
-
-
-
-
-
-
-
-/////////////////////output should be  
-
+2.OUTPUT:
     ID              NAME                 SUBJECT
 -------------------------------------------------------
      1              arun                   tamil
@@ -111,4 +98,5 @@ public class Batchprocessing {
      5           gowtham              electronic
      6               don                 history
      7              hari                computer
+
 
